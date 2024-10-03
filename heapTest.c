@@ -5,7 +5,14 @@
 #include "heap.h"
 
 /*
-Assignment 5: integer minheap
+./minHeap
+
+Read heapOutput.sh for instructions on how to use it.
+
+Inputs 20 random numbers in the range of 0 to 1000 into an integer minheap,
+    printing the entire minheap as every node is added, and then deleting 10 roots
+    from the minheap, printing the whole minheap as every node is deleted.
+
 */
 
 unsigned long long rand_between(unsigned long long min,
@@ -16,7 +23,7 @@ unsigned long long rand_between(unsigned long long min,
 
 void test_heap(void) {
     heap_t *heap = heap_create(200);
-    for (heap_key_t ix = 0; ix < 20; ix++) {
+    for (heap_key_t ix = 0; ix  < 20; ix++) {
         heap_key_t key = rand_between(0, 1000);
         heap_insert(heap, key, (heap_value_t)key);
         heap_print(heap);
@@ -28,8 +35,11 @@ void test_heap(void) {
     }
     exit(0);
 }
+
 int main(int argc, char *argv[]) {
     srand(time(NULL));
 
     test_heap();
+
+    return 0;
 }
